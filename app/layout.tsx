@@ -10,12 +10,22 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  team,
+  analytics,
 }: {
   children: React.ReactNode;
+  team: React.ReactNode;
+  analytics: React.ReactNode;
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex justify-center items-center h-screen">
+          <div>{children}</div>
+          <div>{team}</div>
+          <div>{analytics}</div>
+        </div>
+      </body>
     </html>
   );
 }
