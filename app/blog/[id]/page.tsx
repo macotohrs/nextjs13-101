@@ -1,7 +1,10 @@
 import React from "react";
-
-const Page = ({ params }: { params: { id: string } }) => {
-  // ターミナル： { params: { id: '100' }, searchParams: {} }
+// catch-all-segmentsの設定
+// /blog/1/2/3でアクセスしたいケース
+// 1. const Page = ({ params }: { params: { id: string } }) => {
+// console.log(params);でどんな値が取得されるか確認 → terminal ▶︎ { id: [ '1', '2', '3' ] }
+// L7のように設定ができる
+const Page = ({ params }: { params: { id: string[] } }) => {
   return (
     <div className="font-medium rounded-lg text-center bg-pink-100 p-8">
       <h2 className="text-2xl text-red-600 font-bold mb-4">Dynamic Routes</h2>
