@@ -5,6 +5,8 @@ type User = {
 };
 
 const Page = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // usersページへのリンクをクリックします。クリックして5秒間何も画面に変化はありません。5秒経過するとユーザ一覧が表示されます。このことからServer Componentでの処理が完了するまでページが表示されないことがわかりました。
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const users: User[] = await response.json();
   console.log(users);
