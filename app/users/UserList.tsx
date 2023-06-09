@@ -8,7 +8,7 @@ const UserList = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
   // const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const response = await fetch('https://jsonplaceholder.typicode.com/user');
-  console.log("😈",response.ok)
+  // console.log("",response.ok) // ターミナル
   if (!response.ok) throw new Error('Failed to fetch data');
   const users: User[] = await response.json();
   return (
