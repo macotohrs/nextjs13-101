@@ -10,10 +10,6 @@ const Page = async () => {
         {/* @ts-expect-error Async Server Component */}
         <UserList />
       </Suspense>
-      <Suspense fallback={<p style={{color: 'pink'}}>Loading OtherUserList...</p>}>
-        {/* @ts-expect-error Async Server Component */}
-        <OtherUserList />
-      </Suspense>
     </div>
   );
 };
