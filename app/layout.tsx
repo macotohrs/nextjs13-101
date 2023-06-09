@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { CounterProvider } from './context/CounterProvider';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <div className="flex justify-center items-center h-screen">
-          <div>{children}</div>
+          <CounterProvider>{children}</CounterProvider>
           <div>{team}</div>
           <div>{analytics}</div>
         </div>

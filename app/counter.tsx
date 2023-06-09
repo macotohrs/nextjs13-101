@@ -1,8 +1,9 @@
 'use client'
 import { useState } from "react"; // hooksはClient Componentで動作するもの
+import { useCounter } from "./context/CounterProvider"; 
 
 export const Counter = ({ children }: { children: React.ReactNode }) => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useCounter();
   const increment = () => {
     setCount((prev) => prev + 1);
   };
