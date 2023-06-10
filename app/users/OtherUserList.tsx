@@ -11,7 +11,9 @@ const OtherUserList = async () => {
   return (
     <ul>
       {users.map((user) => (
-        <li key={user.id} style={{color: 'pink'}}>{user.name}</li>
+        <li key={user.id} style={{ color: "pink" }}>
+          {user.name}
+        </li>
       ))}
     </ul>
   );
