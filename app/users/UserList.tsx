@@ -1,21 +1,27 @@
-type User = {
-  id: string;
-  name: string;
-  email: string;
-};
+import UserList from './UserList';
 
-const UserList = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  if (!response.ok) throw new Error('Failed to fetch data');
-  const users: User[] = await response.json();
+const Page = async () => {
+  const response = await fetch('http://localhost:3000/api', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: 'John',
+      email: 'john@example.com',
+    }),
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+
   return (
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
+    <div className="m-4">
+      <h1 className="text-lg font-bold">ユーザ一覧</h1>
+      <UserList />
+    </div>
   );
 };
 
-
-export default UserList;
+export default Page;
