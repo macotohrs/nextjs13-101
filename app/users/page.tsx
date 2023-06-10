@@ -7,7 +7,6 @@ const Page = async () => {
     <div className="m-4">
       <h1 className="text-lg font-bold">ユーザ一覧</h1>
       <Suspense fallback={<p>Loading...</p>}>
-        {/* @ts-expect-error Async Server Component */}
         <UserList />
       </Suspense>
     </div>
