@@ -18,8 +18,10 @@ export async function GET(request: Request) {
 
 const UserList = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
-  // ブラウザから/usersにアクセスするとRoute Handlersを経由してデータの取得が行われ、ユーザ一覧が表示されます。
-  const response = await fetch('http://localhost:3000/api');
+  // 検索などURLパラメータを利用した場合のURLパラメータの取得方法
+  const response = await fetch('http://localhost:3000/api?name=John', {
+  cache: 'no-store', // キャッシュ機能を無効 (一度fetch関数が実行されるとキャッシュされるためその後fetch関数を実行するとキャッシュしたデータが利用されるためリクエストが行われない)
+});
   if (!response.ok) throw new Error('Failed to fetch data');
   const users: User[] = await response.json();
   return (
