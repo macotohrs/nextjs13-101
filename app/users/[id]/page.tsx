@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-import { type User } from '../UserList';
+import type { Metadata } from "next";
+import { type User } from "../UserList";
 
-async function getUser(id: string) { // 該当のuser情報をfetch
+async function getUser(id: string) {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${id}`
   );
@@ -15,6 +15,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const user = await getUser(params.id);
   return { title: user.name };
+}
+
+export async function generateStaticParams() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users: User[] = await response.json();
+
+  return users.map((user) => ({
+    id: user.id.toString(),
+  }));
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
