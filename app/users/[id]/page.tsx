@@ -1,11 +1,24 @@
+import type { Metadata } from 'next';
 import { type User } from '../UserList';
 
-const Page = async ({ params }: { params: { id: string } }) => {
-  console.log("users/[id]/page", params)
+async function getUser(id: string) { // 該当のuser情報をfetch
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${params.id}`
+    `https://jsonplaceholder.typicode.com/users/${id}`
   );
-  const user: User = await response.json();
+  return response.json();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const user = await getUser(params.id);
+  return { title: user.name };
+}
+
+const Page = async ({ params }: { params: { id: string } }) => {
+  const user: User = await getUser(params.id);
 
   return (
     <div className="m-4">
