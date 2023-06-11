@@ -4,9 +4,9 @@ import { Counter } from "./counter";
 import UserList from "./users/UserList";
 
 export const metadata = {
-  metadataBase: new URL('https://localhost.com:3000'),
+  metadataBase: new URL("https://localhost.com:3000"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
 };
 
