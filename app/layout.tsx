@@ -1,8 +1,10 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { Dancing_Script } from 'next/font/google';
 import { CounterProvider } from './context/CounterProvider';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] }); // 
+const dancingScript = Dancing_Script({ subsets: ['latin'] }); //
 
 export const metadata = {
   title: {
@@ -23,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className={dancingScript.className}>
         <div className="flex justify-center items-center h-screen">
           <CounterProvider>{children}</CounterProvider>
           {/* <div>{team}</div> */}
