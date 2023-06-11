@@ -38,6 +38,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <p>ID: {user.id}</p>
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>
+      <p>Random: {Math.random()}</p>
     </div>
   );
 };
