@@ -18,13 +18,16 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const users: User[] = await response.json();
 
-  return users.map((user) => ({
+  return users.slice(0, 3).map((user) => ({
     id: user.id.toString(),
   }));
 }
+// export function generateStaticParams() {
+//   return [{ id: '1' }, { id: '4' }, { id: '8' }];
+// }
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const user: User = await getUser(params.id);
