@@ -1,5 +1,10 @@
 import UserList from './UserList';
 
+export const metadata = {
+  title: 'ユーザの一覧ページ',
+  description: 'JSONPlaceHolderから取得したユーザ一覧です。',
+};
+
 const Page = async () => {
   const response = await fetch('http://localhost:3000/api', {
     method: 'POST',
@@ -13,8 +18,6 @@ const Page = async () => {
   });
 
   const data = await response.json();
-
-  console.log(data);
 
   return (
     <div className="m-4">

@@ -23,8 +23,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex justify-center items-center h-screen">
           <CounterProvider>{children}</CounterProvider>
-          <div>{team}</div>
-          <div>{analytics}</div>
+          {/* <div>{team}</div> */}
+          {/* <div>{analytics}</div> */}
         </div>
       </body>
     </html>
